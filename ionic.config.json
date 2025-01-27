@@ -1,0 +1,7 @@
+{
+  "name": "wcr-challenge-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
