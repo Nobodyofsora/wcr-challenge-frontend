@@ -6,13 +6,15 @@ import { IonicModule } from '@ionic/angular';
 
 import { WelcomePageRoutingModule } from './welcome-page-routing.module';
 import { WelcomePage } from './welcome-page.page';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    WelcomePageRoutingModule
+    WelcomePageRoutingModule,
+    MatButtonModule
   ],
   declarations: [WelcomePage]
 })
