@@ -6,7 +6,7 @@
   height: 100%;
 }
 
-.container mat-card-title {
+.container mat-card-title  {
   padding: 1rem 0;
 }
 .container .content {
@@ -16,4 +16,17 @@
 
 .content mat-card-title, .content mat-form-field {
   padding: 1rem 2rem;
+}
+mat-form-field + div mat-form-field {
+  width: 100%;
+}
+@media screen and (max-width: 600px) {
+  .container.signup{
+    margin: 5rem 0;
+  }
+  .content div {
+    display: flex;
+    flex-direction: column;
+  }
+  
 }

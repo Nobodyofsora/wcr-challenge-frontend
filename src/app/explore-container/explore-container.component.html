@@ -1,10 +1,34 @@
-<div class="container">  
+<div class="container" [ngClass]="{'signup': isItSignUp()}">  
   <mat-card appearance="outlined">
     <mat-card-content>
 
       <mat-card-title>{{name}}</mat-card-title>
 
       <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="content">
+        <div *ngIf="isItSignUp()">
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input 
+              matInput
+              formControlName="name"
+              (blur)="updateErrorMessage('name')" 
+              placeholder="John"  
+              required>     
+              <mat-error *ngIf="(form.get('name'))?.invalid">{{errorMessage()}}</mat-error>             
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input 
+              matInput
+              formControlName="lastName"
+              (blur)="updateErrorMessage('lastName')" 
+              placeholder="Doe" 
+              required>        
+              <mat-error *ngIf="(form.get('lastName'))?.invalid">{{errorMessage()}}</mat-error>           
+          </mat-form-field>
+        </div>
+        
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
           <input 
@@ -12,7 +36,7 @@
             formControlName="email"
             type="email"
             placeholder="email@example.com" 
-            (blur)="updateErrorMessage()" 
+            (blur)="updateErrorMessage('email')" 
             required>
           <mat-error *ngIf="(form.get('email'))?.invalid">{{errorMessage()}}</mat-error>            
         </mat-form-field>
@@ -22,8 +46,10 @@
           <input 
             matInput
             formControlName="password"
+            (blur)="updateErrorMessage('password')" 
             [type]="hide() ? 'password' : 'text'" 
             required>
+            <mat-error *ngIf="(form.get('password'))?.invalid">{{errorMessage()}}</mat-error>         
           <button
             mat-icon-button
             matSuffix
@@ -34,6 +60,29 @@
             <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
+
+        <div *ngIf="isItSignUp()">
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input 
+              matInput
+              formControlName="repassword"
+              (blur)="updateErrorMessage('repassword')" 
+              [type]="hide() ? 'password' : 'text'" 
+              required>
+              <mat-error *ngIf="(form.get('repassword'))?.invalid">{{errorMessage()}}</mat-error>         
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="clickEvent($event)"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide()"
+            >
+              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+
         <button mat-button type="submit">{{name}}</button>
       </form>
 

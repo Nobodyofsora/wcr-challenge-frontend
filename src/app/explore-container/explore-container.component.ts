@@ -23,14 +23,22 @@ export class ExploreContainerComponent implements OnInit {
   }
 
   ngOnInit (): void {
-    this.form = this.fb.group ({
+    this.form = this.isItSignUp() ? 
+    this.fb.group ({
+      name:  [null, [Validators.required]],
+      lastName: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required,]], // Validators.pattern ("^[a-z0-9"),
+      repassword: [null, [Validators.required,]], // Validators.pattern ("^[a-z0-9")
+    })
+    : this.fb.group ({
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required,]], // Validators.pattern ("^[a-z0-9")
     });
   }
 //Email error message
-  updateErrorMessage() {
-    if (this.form.get('email')?.errors?.['required']) {
+  updateErrorMessage(field: string) {
+    if (this.form.get(field)?.errors?.['required']) {
       this.errorMessage.set('You must enter a value');
     } else if (this.form.get('email')?.errors?.['email']) {
       this.errorMessage.set('Not a valid email');
@@ -49,4 +57,8 @@ export class ExploreContainerComponent implements OnInit {
       console.log(form.value);
     }
   } 
+  // check if it is signup
+  isItSignUp(){
+    return this.name === 'Signup';
+  }
 }
