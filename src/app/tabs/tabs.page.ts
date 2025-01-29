@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -8,6 +9,9 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {}
+  loadWelcomePage () {
+    this.navCtrl.navigateForward('/welcome');
+  }
 
 }

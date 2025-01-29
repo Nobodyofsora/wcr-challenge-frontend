@@ -1,5 +1,9 @@
+<mat-toolbar>
+  <button mat-mini-fab (click)="loadWelcomePage()">
+    <mat-icon>home</mat-icon>
+  </button>
+</mat-toolbar>
 <ion-tabs>
-
   <ion-tab-bar slot="left">
     <ion-tab-button tab="login" href="/tabs/login">
       <ion-icon name="log-in-outline"></ion-icon>
@@ -10,7 +14,5 @@
       <ion-icon name="arrow-forward-outline"></ion-icon>
       <ion-label>Signup</ion-label>
     </ion-tab-button>
-
   </ion-tab-bar>
-
 </ion-tabs>

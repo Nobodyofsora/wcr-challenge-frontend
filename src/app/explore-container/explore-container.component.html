@@ -1,3 +1,42 @@
-<div id="container">
-  <strong>{{ name }}</strong>
+<div class="container">  
+  <mat-card appearance="outlined">
+    <mat-card-content>
+
+      <mat-card-title>{{name}}</mat-card-title>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="content">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input 
+            matInput
+            formControlName="email"
+            type="email"
+            placeholder="email@example.com" 
+            (blur)="updateErrorMessage()" 
+            required>
+          <mat-error *ngIf="(form.get('email'))?.invalid">{{errorMessage()}}</mat-error>            
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input 
+            matInput
+            formControlName="password"
+            [type]="hide() ? 'password' : 'text'" 
+            required>
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="clickEvent($event)"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide()"
+          >
+            <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <button mat-button type="submit">{{name}}</button>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
 </div>
