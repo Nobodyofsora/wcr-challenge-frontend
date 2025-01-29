@@ -10,6 +10,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import { CoolFacebookButtonComponent, CoolGoogleButtonComponent } from '@angular-cool/social-login-buttons';
 
 @NgModule({
   imports: [ 
@@ -23,7 +26,11 @@ import {MatButtonModule} from '@angular/material/button';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    CoolGoogleButtonComponent,
+    CoolFacebookButtonComponent,
+    MatDividerModule,
+    MatListModule
   ],
   declarations: [ExploreContainerComponent],
   exports: [ExploreContainerComponent]

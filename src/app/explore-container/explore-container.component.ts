@@ -61,4 +61,11 @@ export class ExploreContainerComponent implements OnInit {
   isItSignUp(){
     return this.name === 'Signup';
   }
+  //Social logins
+  onGoogleLoginClicked() {
+    console.log('Google login clicked');
+  }
+  onFacebookLoginClicked() {
+    console.log('Facebook login clicked');
+  }
 }

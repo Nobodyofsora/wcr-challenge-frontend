@@ -4,6 +4,20 @@
 
       <mat-card-title>{{name}}</mat-card-title>
 
+      <mat-list class="social-buttons" *ngIf="!isItSignUp()"> 
+        <mat-list-item>
+          <cool-google-button color="dark" (click)="onGoogleLoginClicked()">
+            Login with Google
+          </cool-google-button>
+        </mat-list-item>
+        <mat-list-item>
+          <cool-facebook-button color="dark" (click)="onFacebookLoginClicked()">
+            Login with Facebook
+          </cool-facebook-button>
+        </mat-list-item>
+      <mat-divider></mat-divider>
+      </mat-list>
+
       <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="content">
         <div *ngIf="isItSignUp()">
           <mat-form-field appearance="outline">
@@ -82,7 +96,7 @@
             </button>
           </mat-form-field>
         </div>
-
+        
         <button mat-button type="submit">{{name}}</button>
       </form>
 
