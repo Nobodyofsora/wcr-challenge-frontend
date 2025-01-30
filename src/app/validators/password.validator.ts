@@ -7,7 +7,7 @@ export function PasswordValidator(): ValidatorFn {
         if (!password) {
             return null;
         }
-        const passwordValid = /^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})/.test(password);
+        const passwordValid = /^(?=.*[a-z]|[A-Z]|[0-9])(?=.*[_!@#\$%\^&\*])(?=.{6,})/.test(password);
         
         return !passwordValid ? { passwordStrength: true } : null;
     }
