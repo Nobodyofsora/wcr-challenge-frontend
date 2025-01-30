@@ -39,18 +39,6 @@ export class ExploreContainerComponent implements OnInit {
       password: [null, [Validators.required, PasswordValidator()]], 
     });
   }
-//Email error message
-  updateErrorMessage(field: string) {
-    if (this.form.get(field)?.hasError('required')) { 
-      //this.errorMessage.set('You must enter a value');
-    } else if (this.form.get(field)?.errors?.['passwordStrength']) {
-      this.errorMessage.set('You password must have 6 or more characters and include letters, numbers and special characters');
-    } else if (this.form.get('email')?.errors?.['email']) {
-      this.errorMessage.set('Not a valid email');
-    } else {
-      this.errorMessage.set('');
-    }
-  }
 //Password hide/show
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());

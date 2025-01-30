@@ -25,7 +25,6 @@
             <input 
               matInput
               formControlName="name"
-              (blur)="updateErrorMessage('name')" 
               placeholder="John"  
               required>     
             <mat-error *ngIf="form.get('name')?.hasError('required')">You must enter a value</mat-error>                       
@@ -36,7 +35,6 @@
             <input 
               matInput
               formControlName="lastName"
-              (blur)="updateErrorMessage('lastName')" 
               placeholder="Doe" 
               required>
             <mat-error *ngIf="form.get('lastName')?.hasError('required')">You must enter a value</mat-error>                       
@@ -50,7 +48,6 @@
             formControlName="email"
             type="email"
             placeholder="email@example.com" 
-            (blur)="updateErrorMessage('email')" 
             required>
           <mat-error *ngIf="form.get('email')?.hasError('required')">You must enter a value</mat-error>            
           <mat-error *ngIf="form.get('email')?.hasError('email')">Not a valid email</mat-error>            
@@ -61,7 +58,6 @@
           <input 
             matInput
             formControlName="password"
-            (blur)="updateErrorMessage('password')" 
             [type]="hide() ? 'password' : 'text'" 
             required>
             <mat-error *ngIf="form.get('password')?.hasError('required')">You must enter a value</mat-error>      
@@ -85,8 +81,7 @@
             <mat-label>Confirm Password</mat-label>
             <input 
               matInput
-              formControlName="repassword"
-              (blur)="updateErrorMessage('repassword')" 
+              formControlName="rePassword"
               [type]="hide() ? 'password' : 'text'" 
               required>
             <mat-error *ngIf="form.get('repassword')?.hasError('required')">You must enter a value</mat-error>      
