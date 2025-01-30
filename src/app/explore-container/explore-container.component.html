@@ -28,7 +28,7 @@
               (blur)="updateErrorMessage('name')" 
               placeholder="John"  
               required>     
-              <mat-error *ngIf="(form.get('name'))?.invalid">{{errorMessage()}}</mat-error>             
+            <mat-error *ngIf="form.get('name')?.hasError('required')">You must enter a value</mat-error>                       
           </mat-form-field>
 
           <mat-form-field appearance="outline">
@@ -38,8 +38,8 @@
               formControlName="lastName"
               (blur)="updateErrorMessage('lastName')" 
               placeholder="Doe" 
-              required>        
-              <mat-error *ngIf="(form.get('lastName'))?.invalid">{{errorMessage()}}</mat-error>           
+              required>
+            <mat-error *ngIf="form.get('lastName')?.hasError('required')">You must enter a value</mat-error>                       
           </mat-form-field>
         </div>
         
@@ -52,7 +52,8 @@
             placeholder="email@example.com" 
             (blur)="updateErrorMessage('email')" 
             required>
-          <mat-error *ngIf="(form.get('email'))?.invalid">{{errorMessage()}}</mat-error>            
+          <mat-error *ngIf="form.get('email')?.hasError('required')">You must enter a value</mat-error>            
+          <mat-error *ngIf="form.get('email')?.hasError('email')">Not a valid email</mat-error>            
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -63,7 +64,11 @@
             (blur)="updateErrorMessage('password')" 
             [type]="hide() ? 'password' : 'text'" 
             required>
-            <mat-error *ngIf="(form.get('password'))?.invalid">{{errorMessage()}}</mat-error>         
+            <mat-error *ngIf="form.get('password')?.hasError('required')">You must enter a value</mat-error>      
+            <mat-error *ngIf="form.get('password')?.hasError('passwordStrength')">
+              You password must have 6 or more characters and include letters, numbers and special characters
+            </mat-error>      
+       
           <button
             mat-icon-button
             matSuffix
@@ -75,7 +80,7 @@
           </button>
         </mat-form-field>
 
-        <div *ngIf="isItSignUp()">
+        <div *ngIf="isItSignUp()" class="repassword">
           <mat-form-field appearance="outline">
             <mat-label>Confirm Password</mat-label>
             <input 
@@ -84,7 +89,10 @@
               (blur)="updateErrorMessage('repassword')" 
               [type]="hide() ? 'password' : 'text'" 
               required>
-              <mat-error *ngIf="(form.get('repassword'))?.invalid">{{errorMessage()}}</mat-error>         
+            <mat-error *ngIf="form.get('repassword')?.hasError('required')">You must enter a value</mat-error>      
+            <mat-error *ngIf="form.get('repassword')?.hasError('passwordStrength')">
+              You password must have 6 or more characters and include letters, numbers and special characters
+            </mat-error>      
             <button
               mat-icon-button
               matSuffix
