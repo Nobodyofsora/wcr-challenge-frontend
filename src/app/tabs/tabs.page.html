@@ -3,16 +3,17 @@
     <mat-icon>home</mat-icon>
   </button>
 </mat-toolbar>
-<ion-tabs>
-  <ion-tab-bar slot="left">
-    <ion-tab-button tab="login" href="/tabs/login">
-      <ion-icon name="log-in-outline"></ion-icon>
-      <ion-label>Login</ion-label>
-    </ion-tab-button>
+  <ion-tabs>
+    <nav mat-tab-nav-bar>
+      
+    <a mat-tab-link
+      *ngFor="let link of links"
+      (click)="activeLink = link.path"
+      [active]="activeLink == link.path"
+      routerLink="{{link.path}}"> 
+      <mat-icon class="tab-icon">{{link.icon}}</mat-icon>
+      {{link.path | titlecase}}
+    </a>
 
-    <ion-tab-button tab="signup" href="/tabs/signup">
-      <ion-icon name="arrow-forward-outline"></ion-icon>
-      <ion-label>Signup</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+    </nav>
+  </ion-tabs>

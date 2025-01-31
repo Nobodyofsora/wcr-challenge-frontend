@@ -9,6 +9,8 @@ import { TabsPage } from './tabs.page';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTabsModule} from '@angular/material/tabs';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -18,7 +20,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     TabsPageRoutingModule,
     MatButtonModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTabsModule,
+    RouterModule
   ],
   declarations: [TabsPage]
 })
