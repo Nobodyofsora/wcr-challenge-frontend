@@ -53,10 +53,10 @@ export class ExploreContainerComponent implements OnInit {
     if (form.valid && this.isItSignUp()) {
       const payload: RegisterRequest = {
         name: form.get('name')?.value,
-        lastName: form.get('lastName')?.value,
+        lastname: form.get('lastName')?.value,
         email: form.get('email')?.value,
         password: form.get('password')?.value,
-        rePassword: form.get('rePassword')?.value,
+        repassword: form.get('rePassword')?.value,
       };
       this.authService.registerApi(payload).subscribe((res:RegisterResponse) => {
         this.openAlert(res.message)
@@ -76,6 +76,7 @@ export class ExploreContainerComponent implements OnInit {
       });
     }
   }
+  // MatSnackbar
   openAlert(message: string) {
       this._snackBar.open(message,'Ok!', {
         horizontalPosition: 'center',
@@ -88,9 +89,9 @@ export class ExploreContainerComponent implements OnInit {
   }
   //Social logins
   onGoogleLoginClicked() {
-    console.log('Google login clicked');
+    this.openAlert('Google login clicked');
   }
   onFacebookLoginClicked() {
-    console.log('Facebook login clicked');
+    this.openAlert('Facebook login clicked');
   }
 }
