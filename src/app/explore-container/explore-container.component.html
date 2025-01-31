@@ -84,8 +84,8 @@
               formControlName="rePassword"
               [type]="hide() ? 'password' : 'text'" 
               required>
-            <mat-error *ngIf="form.get('repassword')?.hasError('required')">You must enter a value</mat-error>      
-            <mat-error *ngIf="form.get('repassword')?.hasError('passwordStrength')">
+            <mat-error *ngIf="form.get('rePassword')?.hasError('required')">You must enter a value</mat-error>      
+            <mat-error *ngIf="form.get('rePassword')?.hasError('passwordStrength')">
               You password must have 6 or more characters and include letters and special characters
             </mat-error>      
             <button

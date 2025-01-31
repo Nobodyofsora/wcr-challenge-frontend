@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Input, OnInit, signal } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { PasswordValidator } from '../validators/password.validator';
-import { LoginResponse, RegisterRequest } from '../interface/auth.model';
+import { LoginResponse, RegisterRequest, RegisterResponse } from '../interface/auth.model';
 import { AuthService } from '../services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class ExploreContainerComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   errorMessage = signal('');
   hide = signal(true);
+  private _snackBar = inject(MatSnackBar);
   
   constructor(private fb: FormBuilder, private authService: AuthService) {
   }
@@ -56,35 +58,32 @@ export class ExploreContainerComponent implements OnInit {
         password: form.get('password')?.value,
         rePassword: form.get('rePassword')?.value,
       };
-      this.authService.registerApi(payload).subscribe((res) => {
-        console.log('Register response', res);
+      this.authService.registerApi(payload).subscribe((res:RegisterResponse) => {
+        this.openAlert(res.message)
+      }, (err) => {
+        this.openAlert(err.message)
       });
-  
-      
- /*          this.isShowerror = true;
-          if (err.error?.error?.message === 'EMAIL_NOT_FOUND') {
-            this.errorMsg = SignInErrorConstants.EMAIL_NOT_FOUND;
-          } else if (err.error?.error?.message === 'INVALID_PASSWORD') {
-            this.errorMsg = SignInErrorConstants.INVALID_PASSWORD;
-          } else if (err.error?.error?.message === 'USER_DISABLED') {
-            this.errorMsg = SignInErrorConstants.USER_DISABLED;
-          } */
-        
-      
+
     } else if(form.valid && !this.isItSignUp()) {
       const payload = {
         email: form.get('email')?.value,
         password: form.get('password')?.value,
       };
       this.authService.loginApi(payload).subscribe((res: LoginResponse) => {
-        console.log('Login response', res);
-      })
+        this.openAlert(res.message)
+      }, (err) => {
+        this.openAlert(err.message)
+      });
     }
+  }
+  openAlert(message: string) {
+      this._snackBar.open(message,'Ok!', {
+        horizontalPosition: 'center',
+        verticalPosition: 'top'
+      });
   }
   // check if it is signup
   isItSignUp(){
-    console.log(this.name);
-    
     return this.name === 'Signup';
   }
   //Social logins
