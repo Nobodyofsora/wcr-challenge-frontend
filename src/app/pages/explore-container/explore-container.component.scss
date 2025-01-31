@@ -3,7 +3,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  margin-top: 64px;
+  margin-bottom: 32px;
+}
+.container.signup {
+  margin-top: 32px;
+  margin-bottom: 0;
 }
 
 .container mat-card-title  {
@@ -70,9 +75,10 @@ mat-form-field + div mat-form-field {
       0 0 0 3px #c8dafc;
 }
 
-@media screen and (max-width: 600px) {
-  .container.signup{
-    margin: 5rem 0;
+@media screen and (max-width: 768px) {
+  .container.signup {
+    margin-top: 64px;
+    margin-bottom: 32px;
   }
   .content div {
     display: flex;
