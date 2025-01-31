@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject, Input, OnInit, signal } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { PasswordValidator } from '../validators/password.validator';
-import { LoginResponse, RegisterRequest, RegisterResponse } from '../interface/auth.model';
-import { AuthService } from '../services/auth.service';
+import { PasswordValidator } from '../../validators/password.validator';
+import { LoginResponse, RegisterRequest, RegisterResponse } from '../../interface/auth.model';
+import { AuthService } from '../../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
