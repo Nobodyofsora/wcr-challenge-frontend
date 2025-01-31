@@ -9,9 +9,10 @@ import { LoadingController, NavController } from '@ionic/angular';
 })
 export class TabsPage {
   links = [{ path:'login', icon: 'login'}, {path: 'signup', icon: 'arrow_forward'}];
-  activeLink = this.links[0].path;
+  activeLink = '';
 
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {}
+
   loadWelcomePage () {
     this.navCtrl.navigateForward('/welcome');
   }
