@@ -17,11 +17,16 @@ const routes: Routes = [
       },
       { 
         path: '', 
-        redirectTo: '/login', 
+        redirectTo: '/tabs/login', 
         pathMatch: 'full' ,
       },
     ]
-  }
+  },
+    { 
+      path: '', 
+      redirectTo: '/tabs/login', 
+      pathMatch: 'full' ,
+    },
 ];
 
 @NgModule({
