@@ -40,7 +40,7 @@ export class ExploreContainerComponent implements OnInit {
     })
     : this.fb.group ({
       email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required, PasswordValidator()]], 
+      password: [null, [Validators.required]], 
     });
   }
 //Password hide/show
@@ -58,21 +58,25 @@ export class ExploreContainerComponent implements OnInit {
         password: form.get('password')?.value,
         repassword: form.get('rePassword')?.value,
       };
-      this.authService.registerApi(payload).subscribe((res:RegisterResponse) => {
-        this.openAlert(res.message)
-      }, (err) => {
-        this.openAlert(err.message)
+      this.authService.registerApi(payload).subscribe({
+          next:(res: RegisterResponse) => {  
+          this.openAlert(res.message)
+        },
+          error: (err: RegisterResponse) => {
+          this.openAlert(err.message)
+        } 
       });
-
     } else if(form.valid && !this.isItSignUp()) {
       const payload = {
         email: form.get('email')?.value,
         password: form.get('password')?.value,
       };
-      this.authService.loginApi(payload).subscribe((res: LoginResponse) => {
-        this.openAlert(res.message)
-      }, (err) => {
-        this.openAlert(err.message)
+      this.authService.loginApi(payload).subscribe({
+        next: (res: LoginResponse) => {
+          this.openAlert(res.message)
+        }, error: (err) => {
+          this.openAlert(err.message)
+        }
       });
     }
   }

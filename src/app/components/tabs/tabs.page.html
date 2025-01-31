@@ -1,12 +1,13 @@
 <mat-tab-nav-panel #tabPanel>
+
   <mat-toolbar>
     <button mat-mini-fab (click)="loadWelcomePage()">
       <mat-icon>home</mat-icon>
     </button>
   </mat-toolbar>
+
   <ion-tabs>
-    <nav mat-tab-nav-bar  [tabPanel]="tabPanel">
-      
+    <nav mat-tab-nav-bar  [tabPanel]="tabPanel">  
       <a mat-tab-link
       *ngFor="let link of links"
       (click)="activeLink = link.path"
@@ -16,8 +17,8 @@
       [active]="rla.isActive"> 
       <mat-icon class="tab-icon">{{link.icon}}</mat-icon>
       {{link.path | titlecase}}
-    </a>
-    
-  </nav>
-</ion-tabs>
+      </a>
+    </nav>
+  </ion-tabs>
+
 </mat-tab-nav-panel>
