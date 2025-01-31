@@ -6,14 +6,14 @@
 
       <mat-list class="social-buttons" *ngIf="!isItSignUp()"> 
         <mat-list-item>
-          <cool-google-button color="dark" (click)="onGoogleLoginClicked()">
+          <button type="button" class="google sign-in-button" (click)="onGoogleLoginClicked()">
             Login with Google
-          </cool-google-button>
+          </button>
         </mat-list-item>
         <mat-list-item>
-          <cool-facebook-button color="dark" (click)="onFacebookLoginClicked()">
+           <button type="button" class="facebook sign-in-button" (click)="onFacebookLoginClicked()">
             Login with Facebook
-          </cool-facebook-button>
+          </button>
         </mat-list-item>
       <mat-divider></mat-divider>
       </mat-list>

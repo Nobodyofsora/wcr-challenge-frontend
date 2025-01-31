@@ -12,7 +12,6 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
-import { CoolFacebookButtonComponent, CoolGoogleButtonComponent } from '@angular-cool/social-login-buttons';
 
 @NgModule({
   imports: [ 
@@ -27,8 +26,6 @@ import { CoolFacebookButtonComponent, CoolGoogleButtonComponent } from '@angular
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    CoolGoogleButtonComponent,
-    CoolFacebookButtonComponent,
     MatDividerModule,
     MatListModule
   ],
