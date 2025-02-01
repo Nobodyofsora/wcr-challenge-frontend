@@ -22,8 +22,18 @@
       "es2018", 
       "dom"
     ],
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "skipLibCheck": true
   },
+  "exclude": [
+    "node_modules/",
+      "**/*.spec.ts"
+  ],
+  "linterOptions": {
+        "exclude": [
+            "node_modules/"
+        ]
+    },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
