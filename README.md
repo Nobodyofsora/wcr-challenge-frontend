@@ -1,10 +1,14 @@
 # WeCanRace Challenge Frontend
 This is a Welcome Page with Login and Signup paired with [wcr-challenge-backend](https://github.com/WECANRACE/wcr-challenge-backend/tree/main) and built with Ionic/Angular and using libraries like Angular Material and Spline.
 
-Make sure to have the [backend](https://github.com/WECANRACE/wcr-challenge-backend) running on localhost:3030
 ### Deployment
+Make sure to have the [backend](https://github.com/WECANRACE/wcr-challenge-backend) running on localhost:3030
 
-Clone this repository and install through docker:
+Clone this repository and install repositories first:
+```bash
+npm i
+```
+Then run docker:
 ```bash
 docker build -t wcr-challenge-frontend .
 ```

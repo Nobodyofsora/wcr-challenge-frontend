@@ -1,5 +1,6 @@
-FROM node:latest
-RUN npm install -g @ionic/cli
+FROM node:18.20-slim
+
+RUN npm install -g @ionic/cli && npm install -g @angular/cli
 
 WORKDIR /www/app
 COPY . /www/app
