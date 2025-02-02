@@ -4,14 +4,14 @@ This is a Welcome Page with Login and Signup paired with [wcr-challenge-backend]
 Make sure to have the [backend](https://github.com/WECANRACE/wcr-challenge-backend) running on localhost:3030
 ### Deployment
 
-Clone this repository and install the dependecies:
+Clone this repository and install through docker:
 ```bash
-npm i
+docker build -t wcr-challenge-frontend .
 ```
 
-Run the dev server:
+Run the server:
 ```bash
-ionic serve
+ docker run -d -p 8100:8100 wcr-challenge-frontend
 ```
 ## Dependencies
 
@@ -95,6 +95,7 @@ wcr-challenge-frontend/
 ├── node_modules/             # Installed dependencies
 ├── angular.json              # Angular CLI configuration
 ├── capacitor.config.ts       # Capacitor configuration
+├── Dockerfile                # Docker configuration
 ├── ionic.config.ts           # Ionic configuration
 ├── karma.config.ts           # Karma configuration
 ├── package.json              # Project dependencies and scripts
