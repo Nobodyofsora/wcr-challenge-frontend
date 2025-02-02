@@ -28,8 +28,8 @@
 mat-form-field + div mat-form-field {
   width: 100%;
 }
-.container button[mat-button]{
-  margin-top: 1.5rem
+.container button[mat-flat-button]{
+  margin: 1rem 2rem;
 }
 .repassword{
   margin-top: 1rem;
