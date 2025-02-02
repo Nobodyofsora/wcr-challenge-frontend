@@ -13,6 +13,7 @@ export class TabsPage {
 
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {}
 
+  // Home button pressed
   loadWelcomePage () {
     this.navCtrl.navigateForward('/welcome');
   }

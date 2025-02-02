@@ -28,7 +28,7 @@ export class ExploreContainerComponent implements OnInit {
   ngOnInit (): void {
     this.buildForm();
   }
-  
+  // Form initialization
   buildForm(): void {
     this.form = this.isItSignUp() ? 
     this.fb.group ({
@@ -48,7 +48,7 @@ export class ExploreContainerComponent implements OnInit {
     this.hide.set(!this.hide());
     event.stopPropagation();
   }
-//Onsubmit
+//handling login ad signup button
   onSubmit(form: FormGroup) {
     if (form.valid && this.isItSignUp()) {
       const payload: RegisterRequest = {
@@ -80,7 +80,7 @@ export class ExploreContainerComponent implements OnInit {
       });
     }
   }
-  // MatSnackbar
+  // MatSnackbar for alerts (success and error)
   openAlert(message: string) {
       this._snackBar.open(message,'Ok!', {
         horizontalPosition: 'center',

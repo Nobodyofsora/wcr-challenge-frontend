@@ -7,11 +7,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
+  // Set header for api
   header = new HttpHeaders({
     'Content-Type': 'application/json',
     'x-api-key': environment.apiKey,
   });
   constructor(private http:HttpClient) { }
+
+// Passing api, payload and headers to login and register api
 
   loginApi(payload: LoginRequest) {
     return this.http.post<LoginResponse> (environment.loginApi, payload, { headers: this.header })

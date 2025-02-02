@@ -16,7 +16,7 @@ export class WelcomePage implements OnInit {
     const app = new Application(canvas as HTMLCanvasElement);
     app.load('https://prod.spline.design/d4ndcu3UoIYfqGwo/scene.splinecode'); 
   }
-  
+  // Enter button pressed
   loadLoginPage() {
     this.navCtrl.navigateForward('/tabs/login');
   }
